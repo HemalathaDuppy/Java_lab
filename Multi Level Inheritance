@@ -1,0 +1,58 @@
+package com.sample;
+class Grandparent{
+	String Hobby;
+	public void data1() {
+		System.out.println("This is Grandparent class.");
+	}
+}
+
+class Parent extends Grandparent{
+	String occupation;
+	public void data2() {
+		System.out.println("This is Parent class.");
+	}
+}
+
+class Child extends Parent{
+	String name;
+	public void data3() {
+		System.out.println("This is Child class.");
+	}
+}
+
+public class Person {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Grandparent GP = new Grandparent();
+		Parent P = new Parent();
+		Child C = new Child();
+		GP.Hobby = "Knitting";
+		System.out.println("Grandparent Hobby: "+ GP.Hobby);
+		P.Hobby = "Cooking";
+		P.occupation = "Software";
+		System.out.println("Parent Hobby: "+ P.Hobby);
+		System.out.println("Parent Occupation: "+ P.occupation);
+		C.Hobby = "Dancing";
+		C.occupation = "Student";
+		C.name = "Rani";
+		System.out.println("Child Hobby: "+ C.Hobby);
+		System.out.println("Child Occupation: "+ C.occupation);
+		System.out.println("Child Name: "+ C.name);
+		C.data1();
+		C.data2();
+		C.data3();
+	}
+
+}
+
+OUTPUT:
+Grandparent Hobby: Knitting
+Parent Hobby: Cooking
+Parent Occupation: Software
+Child Hobby: Dancing
+Child Occupation: Student
+Child Name: Rani
+This is Grandparent class.
+This is Parent class.
+This is Child class.
