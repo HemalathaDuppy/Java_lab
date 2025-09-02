@@ -1,0 +1,36 @@
+package com.sample;
+class Teacher{
+	String name;
+	public void data() {
+		System.out.println("Java Course");
+	}
+}
+
+class Student extends Teacher{
+	String Roll_no;
+}
+
+public class College {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Teacher T = new Teacher();
+		Student S = new Student();
+		T.name = "Sangeetha";
+		System.out.println("Teacher Name: "+ T.name);
+		S.name = "Rani";
+		System.out.println("Student Name: "+ S.name);
+		S.Roll_no = "5V2";
+		System.out.println("Student Roll No: "+ S.Roll_no);
+		S.data();
+		
+	}
+
+}
+
+
+OUTPUT:
+Teacher Name: Sangeetha
+Student Name: Rani
+Student Roll No: 5V2
+Java Course
