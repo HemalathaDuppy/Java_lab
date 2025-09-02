@@ -1,0 +1,50 @@
+package com.sample;
+//polymorphism : many methods/classes but only values are changed
+class RbiBank{
+	public double getRateofInterest() {
+		return 5.0; 
+	}
+}
+	
+class SBI extends  RbiBank{
+	//override
+	public double getRateofInterest() {
+		return 6.5; 
+		}
+	public void sbiSpecialFeature() {
+		System.out.println("Zero Bank Balance");
+	}
+	}	
+class ICICI extends RbiBank{
+	//override
+	public double getRateofInterest() {
+		return 7.5; 
+		
+	}
+}	
+
+public class Bank {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		RbiBank rb = new RbiBank();
+		//in over writing concept we can create child object using parent class is called up casting
+		RbiBank rb1 = new SBI();
+		SBI sb1 = new SBI();
+		ICICI ic1 = new ICICI();
+		sb1.sbiSpecialFeature();
+		System.out.println("RBI Rate of Interest: "+ rb.getRateofInterest());
+		System.out.println("SBI Rate of Interest: "+ sb1.getRateofInterest());
+		System.out.println("ICICI Rate of Interest: "+ ic1.getRateofInterest());
+		System.out.println("SBI Rate of Interest: "+ rb1.getRateofInterest());
+	}
+
+}
+
+
+OUTPUT:
+Zero Bank Balance
+RBI Rate of Interest: 5.0
+SBI Rate of Interest: 6.5
+ICICI Rate of Interest: 7.5
+SBI Rate of Interest: 6.5
