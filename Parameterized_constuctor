@@ -1,0 +1,57 @@
+package com.sample;
+class parameterized_constructor{
+	String name;
+	int age;
+	String address;
+	
+	//PC method with no parameters(default)
+	parameterized_constructor()
+	{ 
+		System.out.println("Default constructor");		
+	}
+
+	//PC method with 1 parameter
+	parameterized_constructor(String name){
+		String cseeSection = name;
+		System.out.println("My name is "+ name);
+	}
+
+	//PC method with 2 parameters
+		parameterized_constructor(String name, int age){
+			this.name = name;
+			this.age = age;
+			System.out.println("My name is "+ name);
+			System.out.println("My age is "+ age);
+	}
+		
+	//PC method with 3 parameters
+		 parameterized_constructor(String name, int age, String address){
+			System.out.println("My name is "+ name);
+			System.out.println("My age is "+ age);
+			System.out.println("My address is"+ address);
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		//creating on objects
+		parameterized_constructor constructor = new parameterized_constructor();
+		parameterized_constructor test1 = new parameterized_constructor("Tina");
+		parameterized_constructor test2 = new parameterized_constructor("Harshitha");
+		parameterized_constructor test3 = new parameterized_constructor("Geetha", 18);
+		parameterized_constructor test4 = new parameterized_constructor("Tanu",19 , "Hyderabad");
+	}
+
+	}
+
+OUTPUT: 
+Default constructor
+My name is Tina
+My name is Harshitha
+My name is Geetha
+My age is 18
+My name is Tanu
+My age is 19
+My address isHyderabad
+
+
