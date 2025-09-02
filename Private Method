@@ -1,0 +1,24 @@
+package com.sample;
+class Calculator{
+	private int add(int a, int b ) {
+		return a+b;
+	}
+
+public void showAddition(int x, int y) {
+	int result = add(x,y);
+	System.out.println("The sum is: "+ result);
+}
+}
+
+public class PrivateMethod {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Calculator calc = new Calculator();
+		calc.showAddition(10,20);
+	}
+}
+
+OUTPUT:
+The sum is: 30
