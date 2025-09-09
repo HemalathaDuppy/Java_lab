@@ -1,0 +1,26 @@
+package com.sample;
+public class NumberPyramid {
+    public static void main(String[] args) {
+        int n = 5;  // number of rows
+
+        for (int i = 1; i <= n; i++) {
+            // Print descending numbers
+            for (int j = i; j >= 1; j--) {
+                System.out.print(j);
+            }
+            // Print ascending numbers
+            for (int j = 2; j <= i; j++) {
+                System.out.print(j);
+            }
+            // New line after each row
+            System.out.println();
+        }
+    }
+}
+
+OUTUT:
+1
+212
+32123
+4321234
+543212345
