@@ -1,0 +1,48 @@
+package com.sample;
+
+import java.util.Scanner;
+
+public class FindDuplicates {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // take size of array
+        System.out.print("Enter size of array: ");
+        int n = sc.nextInt();
+
+        int[] arr = new int[n];
+
+        // take array elements
+        System.out.println("Enter " + n + " elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        System.out.println("Duplicate values are:");
+
+        // check for duplicates
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] == arr[j]) {
+                    System.out.println(arr[i]);
+                    break; // avoid printing same duplicate multiple times
+                }
+            }
+        }
+
+        sc.close();
+    }
+}
+
+OUTPUT:
+Enter size of array: 6
+Enter 6 elements:
+20
+30
+40
+20
+30
+84
+Duplicate values are:
+20
+30
