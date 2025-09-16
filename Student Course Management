@@ -1,0 +1,89 @@
+// Bean class
+class Course {
+    private int id;
+    private String name;
+    private double price;
+
+    public Course(int id, String name, double price) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+    }
+
+    public int getId() { return id; }
+    public String getName() { return name; }
+    public double getPrice() { return price; }
+    public void setPrice(double price) { this.price = price; }
+
+    @Override
+    public String toString() {
+        return id + " - " + name + " : " + price;
+    }
+}
+
+// Interface
+interface StudentCourse {
+    void addCourse(Course c) throws Exception;
+    Course[] viewCourses() throws Exception;
+    void addFee(double fee) throws Exception;
+}
+
+// Implementation
+class Semester implements StudentCourse {
+    private Course[] courses = new Course[5];
+    private int count = 0;
+
+    public void addCourse(Course c) throws Exception {
+        if (count < courses.length) {
+            courses[count++] = c;
+            System.out.println("Course Added: " + c);
+        } else {
+            throw new Exception("Course limit reached");
+        }
+    }
+
+    public Course[] viewCourses() throws Exception {
+        if (count == 0) throw new Exception("No courses available");
+        return courses;
+    }
+
+    public void addFee(double fee) throws Exception {
+        if (fee < 1000 || fee > 3000)
+            throw new Exception("Invalid fee range (1000–3000)");
+        if (fee > 1500) {
+            fee = fee - (fee * 0.10); // 10% discount
+            System.out.println("Fee after 10% discount: " + fee);
+        } else {
+            System.out.println("Fee (no discount): " + fee);
+        }
+    }
+}
+
+// Main
+public class MainCourse {
+    public static void main(String[] args) {
+        try {
+            Semester sem = new Semester();
+            sem.addCourse(new Course(1, "Java", 2000));
+            sem.addCourse(new Course(2, "Python", 1200));
+
+            sem.addFee(2500); // valid, discount applied
+            sem.addFee(1400); // valid, no discount
+
+            for (Course c : sem.viewCourses()) {
+                if (c != null) System.out.println(c);
+            }
+        } catch (Exception e) {
+            System.out.println("Exception: " + e.getMessage());
+        }
+    }
+}
+
+
+OUTPUT:
+Course Added: 1 - Java : 2000.0
+Course Added: 2 - Python : 1200.0
+Fee after 10% discount: 2250.0
+Fee (no discount): 1400.0
+1 - Java : 2000.0
+2 - Python : 1200.0
