@@ -1,0 +1,63 @@
+package com.sample;
+
+import java.util.Scanner;
+
+public class CommonElements {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Input first array
+        System.out.print("Enter size of first array: ");
+        int n1 = sc.nextInt();
+        sc.nextLine(); // consume newline
+        String[] arr1 = new String[n1];
+        System.out.println("Enter elements of first array:");
+        for (int i = 0; i < n1; i++) {
+            arr1[i] = sc.nextLine();
+        }
+
+        // Input second array
+        System.out.print("Enter size of second array: ");
+        int n2 = sc.nextInt();
+        sc.nextLine(); // consume newline
+        String[] arr2 = new String[n2];
+        System.out.println("Enter elements of second array:");
+        for (int i = 0; i < n2; i++) {
+            arr2[i] = sc.nextLine();
+        }
+
+        // Find and print common elements using nested loops
+        System.out.println("Common elements:");
+        boolean found = false;
+        for (int i = 0; i < n1; i++) {
+            for (int j = 0; j < n2; j++) {
+                if (arr1[i].equals(arr2[j])) {
+                    System.out.println(arr1[i]);
+                    found = true;
+                    break; // avoid printing duplicates for same element
+                }
+            }
+        }
+
+        if (!found) {
+            System.out.println("No common elements found.");
+        }
+
+        sc.close();
+    }
+}
+
+OUTPUT:
+Enter size of first array: 3
+Enter elements of first array:
+10
+20
+30
+Enter size of second array: 4
+Enter elements of second array:
+20
+40
+50
+60
+Common elements:
+20
