@@ -1,0 +1,67 @@
+package com.sample;
+
+//Custom Exception (must extend Exception or RuntimeException)
+class CreditsNotSufficientException extends Exception {
+ public CreditsNotSufficientException(String message) {
+     super(message); // Pass message to Exception class
+ }
+}
+
+class Student {
+ int credits;
+
+ Student(int credits) {
+     this.credits = credits;
+ }
+
+ // Caller Method 1
+ void registerCourse() throws CreditsNotSufficientException {
+     if (credits < 50) {
+         throw new CreditsNotSufficientException("Not enough credits to register for course.");
+     } else {
+         System.out.println("Course registered successfully with " + credits + " credits.");
+     }
+ }
+
+ // Caller Method 2
+ void appearExam() throws CreditsNotSufficientException {
+     if (credits < 50) {
+         throw new CreditsNotSufficientException("Not enough credits to appear in exam.");
+     } else {
+         System.out.println("Eligible to appear in exam with " + credits + " credits.");
+     }
+ }
+}
+
+public class MainCredits {
+ public static void main(String[] args) {
+     Student s1 = new Student(40); // insufficient
+     Student s2 = new Student(60); // sufficient
+
+     try {
+         s1.registerCourse();
+     } catch (CreditsNotSufficientException e) {
+         System.out.println("Exception: " + e.getMessage());
+     }
+
+     try {
+         s1.appearExam();
+     } catch (CreditsNotSufficientException e) {
+         System.out.println("Exception: " + e.getMessage());
+     }
+
+     try {
+         s2.registerCourse();
+         s2.appearExam();
+     } catch (CreditsNotSufficientException e) {
+         System.out.println("Exception: " + e.getMessage());
+     }
+ }
+}
+
+
+OUTPUT:
+Exception: Not enough credits to register for course.
+Exception: Not enough credits to appear in exam.
+Course registered successfully with 60 credits.
+Eligible to appear in exam with 60 credits.
