@@ -1,0 +1,47 @@
+package com.sample;
+
+interface BankService {
+    void createAccount();
+    void creditAmount(double amount);
+    void debitAmount(double amount);
+    void transferAmount(double amount);
+    void miniStatement();
+}
+
+class SBI implements BankService {
+    public void createAccount() { System.out.println("SBI Account Created"); }
+    public void creditAmount(double amount) { System.out.println("SBI credited: " + amount); }
+    public void debitAmount(double amount) { System.out.println("SBI debited: " + amount); }
+    public void transferAmount(double amount) { System.out.println("SBI transferred: " + amount); }
+    public void miniStatement() { System.out.println("SBI Mini Statement"); }
+}
+
+class Axis implements BankService {
+    public void createAccount() { System.out.println("Axis Account Created"); }
+    public void creditAmount(double amount) { System.out.println("Axis credited: " + amount); }
+    public void debitAmount(double amount) { System.out.println("Axis debited: " + amount); }
+    public void transferAmount(double amount) { System.out.println("Axis transferred: " + amount); }
+    public void miniStatement() { System.out.println("Axis Mini Statement"); }
+}
+
+public class MainBank {
+    public static void main(String[] args) {
+        BankService b1 = new SBI();
+        b1.createAccount();
+        b1.creditAmount(5000);
+        b1.miniStatement();
+
+        BankService b2 = new Axis();
+        b2.createAccount();
+        b2.debitAmount(2000);
+        b2.miniStatement();
+    }
+}
+
+OUTPUT:
+SBI Account Created
+SBI credited: 5000.0
+SBI Mini Statement
+Axis Account Created
+Axis debited: 2000.0
+Axis Mini Statement
