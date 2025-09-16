@@ -1,0 +1,42 @@
+package com.sample;
+
+import java.util.Scanner;
+
+public class PrimeFibonacci {
+    
+    // Check if number is prime
+    static boolean isPrime(int num) {
+        if (num <= 1) return false;
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) return false;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Input n
+        System.out.print("Enter value of n: ");
+        int n = sc.nextInt();
+
+        System.out.println("Prime Fibonacci numbers up to " + n + ":");
+
+        int a = 0, b = 1;
+        while (a <= n) {
+            if (isPrime(a)) {
+                System.out.print(a + " ");
+            }
+            int next = a + b;
+            a = b;
+            b = next;
+        }
+
+        sc.close();
+    }
+}
+
+OUTPUT:
+Enter value of n: 30
+Prime Fibonacci numbers up to 30:
+2 3 5 13 
