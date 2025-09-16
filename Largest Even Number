@@ -1,0 +1,68 @@
+package com.sample;
+
+import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class LargestEvenNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Input string
+        System.out.print("Enter a string: ");
+        String input = sc.nextLine();
+
+        // Use TreeSet (reverse order) to store unique digits sorted
+        Set<Character> digits = new TreeSet<>((a, b) -> b - a);
+
+        // Extract digits from string
+        for (char ch : input.toCharArray()) {
+            if (Character.isDigit(ch)) {
+                digits.add(ch);
+            }
+        }
+
+        // If no digits present
+        if (digits.isEmpty()) {
+            System.out.println("-1");
+            return;
+        }
+
+        // Convert set to string
+        StringBuilder num = new StringBuilder();
+        for (char d : digits) {
+            num.append(d);
+        }
+
+        // Find an even digit to place at the end
+        int index = -1;
+        for (int i = num.length() - 1; i >= 0; i--) {
+            int digit = num.charAt(i) - '0';
+            if (digit % 2 == 0) {
+                index = i;
+                break;
+            }
+        }
+
+        if (index == -1) {
+            System.out.println("-1"); // No even digit available
+        } else {
+            // Swap last digit with found even digit
+            char evenDigit = num.charAt(index);
+            num.deleteCharAt(index);
+            num.append(evenDigit);
+
+            System.out.println("Largest Even Number: " + num.toString());
+        }
+
+        sc.close();
+    }
+}
+
+OUTPUT:
+Enter a string: hello13579
+-1  
+
+Enter a string: ab12392cd51
+Largest Even Number: 95312
+
