@@ -1,0 +1,45 @@
+package com.sample;
+
+abstract class Shape {
+    int x, y;
+    abstract void printArea();
+}
+
+class Rectangle extends Shape {
+    Rectangle(int a, int b) { x = a; y = b; }
+    void printArea() {
+        System.out.println("Rectangle Area: " + (x * y));
+    }
+}
+
+class Triangle extends Shape {
+    Triangle(int a, int b) { x = a; y = b; }
+    void printArea() {
+        System.out.println("Triangle Area: " + (0.5 * x * y));
+    }
+}
+
+class Circle extends Shape {
+    Circle(int r) { x = r; }
+    void printArea() {
+        System.out.println("Circle Area: " + (3.14 * x * x));
+    }
+}
+
+public class MainShape {
+    public static void main(String[] args) {
+        Shape s1 = new Rectangle(10, 20);
+        Shape s2 = new Triangle(10, 15);
+        Shape s3 = new Circle(7);
+
+        s1.printArea();
+        s2.printArea();
+        s3.printArea();
+    }
+}
+
+
+OUTPUT:
+Rectangle Area: 200
+Triangle Area: 75.0
+Circle Area: 153.86
